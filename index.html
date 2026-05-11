@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encontre um Distribuidor – Água Mineral Vivara</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --azul: #1a3c8f;
+    --azul-medio: #1e57c4;
+    --azul-claro: #4ea8de;
+    --azul-gelo: #d6eaf8;
+    --agua: #a8d8ea;
+    --branco: #ffffff;
+    --cinza-leve: #f4f8fd;
+    --cinza: #6b7a8d;
+    --texto: #1a2a3a;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cinza-leve);
+    color: var(--texto);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 60%, var(--azul-claro) 100%);
+    padding: 28px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='rgba(255,255,255,0.05)' d='M0,80 C360,160 1080,0 1440,80 L1440,200 L0,200 Z'/%3E%3C/svg%3E") bottom/cover no-repeat;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0; height: 48px;
+    background: var(--cinza-leve);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .logo-area {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .logo-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 8vw, 3.6rem);
+    color: var(--branco);
+    letter-spacing: -1px;
+    line-height: 1;
+    text-shadow: 0 3px 16px rgba(0,0,0,0.25);
+  }
+  .logo-sub {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.65rem, 2vw, 0.85rem);
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .logo-img {
+    height: clamp(52px, 12vw, 88px);
+    width: auto;
+    display: block;
+  }
+
+  .tagline {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+  }
+
+  .hero-title {
+    position: relative;
+    margin-top: 28px;
+    color: var(--branco);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .hero-desc {
+    position: relative;
+    color: rgba(255,255,255,0.82);
+    font-size: clamp(0.85rem, 2.2vw, 1rem);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  /* ── SEARCH CARD ── */
+  .search-wrapper {
+    max-width: 680px;
+    margin: -28px auto 0;
+    padding: 0 16px;
+    position: relative;
+    z-index: 10;
+  }
+  .search-card {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 24px 24px 20px;
+    box-shadow: 0 8px 40px rgba(30, 87, 196, 0.16);
+  }
+  .search-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--azul);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .search-row {
+    display: flex;
+    gap: 10px;
+  }
+  .search-input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid var(--azul-gelo);
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--texto);
+    outline: none;
+    transition: border-color .2s;
+    background: var(--cinza-leve);
+  }
+  .search-input:focus { border-color: var(--azul-claro); background: var(--branco); }
+  .search-input::placeholder { color: #b0bec5; font-weight: 400; }
+
+  .btn-clear {
+    padding: 14px 18px;
+    background: var(--azul-gelo);
+    border: 2px solid var(--azul-gelo);
+    border-radius: 12px;
+    color: var(--azul);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .btn-clear:hover { background: var(--azul); color: white; border-color: var(--azul); }
+
+  .city-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 16px;
+  }
+  .pill {
+    background: var(--cinza-leve);
+    border: 1.5px solid var(--azul-gelo);
+    color: var(--azul);
+    border-radius: 50px;
+    padding: 5px 13px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all .18s;
+    white-space: nowrap;
+  }
+  .pill:hover, .pill.active {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: white;
+  }
+
+  /* ── RESULTS ── */
+  .results-section {
+    max-width: 860px;
+    margin: 36px auto 60px;
+    padding: 0 16px;
+  }
+  .results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .results-count {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--azul);
+  }
+  .results-count span { color: var(--azul-claro); }
+
+  .city-group { margin-bottom: 32px; }
+  .city-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .city-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--azul);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .city-badge {
+    background: var(--azul-gelo);
+    color: var(--azul-medio);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 50px;
+  }
+  .city-line {
+    flex: 1;
+    height: 1.5px;
+    background: var(--azul-gelo);
+    border-radius: 2px;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+
+  .dist-card {
+    background: var(--branco);
+    border-radius: 14px;
+    padding: 16px 18px;
+    border: 1.5px solid var(--azul-gelo);
+    transition: box-shadow .2s, transform .2s, border-color .2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .dist-card:hover {
+    box-shadow: 0 6px 24px rgba(30,87,196,0.12);
+    transform: translateY(-2px);
+    border-color: var(--azul-claro);
+  }
+  .dist-nome {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.92rem;
+    color: var(--texto);
+    line-height: 1.3;
+  }
+  .dist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .dist-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    color: var(--cinza);
+  }
+  .dist-row svg { flex-shrink: 0; }
+  .dist-row a {
+    color: var(--azul-medio);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+  }
+  .dist-row a:hover { color: var(--azul); text-decoration: underline; }
+
+  .estado-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 50px;
+    background: var(--azul-gelo);
+    color: var(--azul-medio);
+    align-self: flex-start;
+  }
+  .estado-tag.pb { background: #fff3e0; color: #e65100; }
+
+  /* ── EMPTY ── */
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--cinza);
+  }
+  .empty svg { opacity: 0.25; margin-bottom: 16px; }
+  .empty h3 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--azul); }
+  .empty p { font-size: 0.9rem; margin-top: 6px; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--azul);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+  }
+  footer strong { color: white; }
+
+  @media (max-width: 500px) {
+    .search-row { flex-direction: column; }
+    .btn-clear { text-align: center; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <img src="Logo_Vivara_Nova.png" alt="Água Mineral Vivara" style="height: clamp(52px, 12vw, 90px); filter: brightness(0) invert(1); display: block;">
+    <div class="tagline">Beba muito mais água.</div>
+  </div>
+  <div class="hero-title">Encontre um Distribuidor</div>
+  <div class="hero-desc">Água pura de São José de Mipibu, RN — perto de você.</div>
+</header>
+
+<div class="search-wrapper">
+  <div class="search-card">
+    <span class="search-label">🔍 Buscar por cidade ou distribuidor</span>
+    <div class="search-row">
+      <input type="text" class="search-input" id="searchInput" placeholder="Ex: Natal, Tibau do Sul, Mercadinho..." autocomplete="off">
+      <button class="btn-clear" id="clearBtn">Limpar</button>
+    </div>
+    <div class="city-pills" id="cityPills"></div>
+  </div>
+</div>
+
+<section class="results-section">
+  <div class="results-header">
+    <div class="results-count" id="resultsCount"></div>
+  </div>
+  <div id="resultsContainer"></div>
+</section>
+
+<footer>
+  <strong>Água Mineral Vivara</strong> — São José de Mipibu, RN &nbsp;·&nbsp; Confiança, Pureza e Origem
+</footer>
+
+<script>
+const DATA = [{"nome":"ALBUQUERQUE MATERIAL CONSTRUCA","cidade":"ARÊS","estado":"RN","telefone":"(84) 3243-2019","email":""},{"nome":"ARNOBIO IDUINO PERES CORREIA","cidade":"ARÊS","estado":"RN","telefone":"(84) 99139-3641","email":""},{"nome":"JOAO BATISTA COSTA DE FREITAS","cidade":"ARÊS","estado":"RN","telefone":"(84) 99409-4574","email":"J.BATISTA.COSTA85@GMAIL.COM"},{"nome":"MERCADINHO EMANUEL","cidade":"ARÊS","estado":"RN","telefone":"(84) 99407-8475","email":""},{"nome":"SERGIO BEBIDAS E EMBALAGENS","cidade":"ARÊS","estado":"RN","telefone":"(84) 8140-8813","email":"LENILDOSERGIO@BOL.COM.BR"},{"nome":"ELIO GAS","cidade":"BANANEIRAS","estado":"PB","telefone":"(83) 3367-1425","email":"ELIOSTA@HOTMAIL.COM"},{"nome":"POUSADA TROPICAL","cidade":"BAÍA DA TRAIÇÃO","estado":"PB","telefone":"","email":""},{"nome":"DIOGO SOUSA DA SILVA","cidade":"BELÉM","estado":"PB","telefone":"(83) 99929-4149","email":""},{"nome":"DAMIAO LEONDAS ARAUJO DOS SANTOS","cidade":"BOM JESUS","estado":"RN","telefone":"","email":""},{"nome":"MERCADINHO COSME E DAMIAO","cidade":"BOM JESUS","estado":"RN","telefone":"(84) 8851-2012","email":""},{"nome":"CREUZA DALVA DA COSTA LIMA","cidade":"BREJINHO","estado":"RN","telefone":"","email":""},{"nome":"DAVI GAS E AGUA","cidade":"BREJINHO","estado":"RN","telefone":"(84) 99150-8257","email":""},{"nome":"JANDERCLEI COSTA DE LIMA","cidade":"BREJINHO","estado":"RN","telefone":"(84) 99123-9747","email":""},{"nome":"JULIÃO BEBIDAS","cidade":"BREJINHO","estado":"RN","telefone":"(84) 99111-1335","email":""},{"nome":"MARANATA SUPERMERCADO","cidade":"BREJINHO","estado":"RN","telefone":"(84) 9192-9028","email":""},{"nome":"MARIA JOELMA DA COSTA OLIVEIRA","cidade":"BREJINHO","estado":"RN","telefone":"(84) 99465-9044","email":""},{"nome":"O F DOS SANTOS","cidade":"BREJINHO","estado":"RN","telefone":"","email":""},{"nome":"ALISON CUNHA DOS SANTOS","cidade":"CANGUARETAMA","estado":"RN","telefone":"(84) 99418-6874","email":""},{"nome":"J AGUA E COMERCIO","cidade":"CANGUARETAMA","estado":"RN","telefone":"(84) 99812-4144","email":""},{"nome":"JK PERFUMARIA","cidade":"CANGUARETAMA","estado":"RN","telefone":"","email":""},{"nome":"KLEITON BEZERRA MUNIZ","cidade":"CANGUARETAMA","estado":"RN","telefone":"","email":""},{"nome":"LIMA CONSTRUCOES","cidade":"CANGUARETAMA","estado":"RN","telefone":"(84) 8635-4245","email":"FERNANDA.LINCOLN@GMAIL.COM"},{"nome":"MERCADINHO BOM PRECO","cidade":"CANGUARETAMA","estado":"RN","telefone":"(84) 8182-5595","email":""},{"nome":"OSMAR DUARTE DE OLIVEIRA","cidade":"CANGUARETAMA","estado":"RN","telefone":"(84) 9155-1725","email":""},{"nome":"MERCADINHO DA ESQUINA","cidade":"DONA INÊS","estado":"PB","telefone":"(83) 98101-7201","email":""},{"nome":"AGUA MINERAL DOIS IRMAOS","cidade":"ESPÍRITO SANTO","estado":"RN","telefone":"(84) 9494-1453","email":""},{"nome":"FRANCISCO RIBEIRO DOS SANTOS","cidade":"ESPÍRITO SANTO","estado":"RN","telefone":"(84) 99193-8274","email":""},{"nome":"JOAO B DA SILVA MERCEARIA","cidade":"ESPÍRITO SANTO","estado":"RN","telefone":"(84) 99174-3894","email":""},{"nome":"ATERRO GAS","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 9486-1996","email":""},{"nome":"DIAS GAS","cidade":"GOIANINHA","estado":"RN","telefone":"","email":""},{"nome":"ERIVALDO BELO DA SILVA","cidade":"GOIANINHA","estado":"RN","telefone":"","email":""},{"nome":"LIGERINHO GÁS E AGUA","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 3243-2431","email":""},{"nome":"LIGIEIRINHO GAS E AGUA","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 3243-2229","email":""},{"nome":"LIMA E DIAS","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 8820-8488","email":""},{"nome":"MERCADINHO LIRA","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 99208-3199","email":""},{"nome":"MINI BOX CENTRAL","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 99491-5041","email":""},{"nome":"RAQUEL ESTEFANI PEREIRA DE OLIVEIRA","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 99429-0114","email":""},{"nome":"SOUZA PIPA CARNE & CONVENIENCIA","cidade":"GOIANINHA","estado":"RN","telefone":"(84) 9223-7651","email":"PIPACARNEECONVENIENCIA@GMAIL.COM"},{"nome":"FC BEBIDAS E CONSTRUCAO","cidade":"JACARAÚ","estado":"PB","telefone":"(83) 98830-5195","email":""},{"nome":"JOSÉ DE FARIAS","cidade":"JACARAÚ","estado":"PB","telefone":"","email":""},{"nome":"MERCADINHO DO LULA","cidade":"JUNDIÁ","estado":"RN","telefone":"(84) 9874-8530","email":""},{"nome":"MERCADINHO DOIS IRMAOS","cidade":"JUNDIÁ","estado":"RN","telefone":"(84) 99167-2566","email":""},{"nome":"RICARDO","cidade":"MACAÍBA","estado":"RN","telefone":"(84) 9104-0034","email":""},{"nome":"FERNANDA VIEGAS MARQUES","cidade":"MAMANGUAPE","estado":"PB","telefone":"","email":""},{"nome":"JHON LHENON DOS SANTOS ARAUJO","cidade":"MATARACA","estado":"PB","telefone":"","email":""},{"nome":"ODINELIA BARBOSA RIBEIRO ME","cidade":"MATARACA","estado":"PB","telefone":"(83) 3297-1006","email":""},{"nome":"THIAGO AGUA E GAS","cidade":"MATARACA","estado":"PB","telefone":"(83) 8734-4944","email":"THIAGAS@GMAIL.COM"},{"nome":"ZEFINHA GÁS","cidade":"MATARACA","estado":"PB","telefone":"(83) 8804-1227","email":""},{"nome":"COMERCIAL SAO FRANCISCO","cidade":"MONTANHAS","estado":"RN","telefone":"(84) 98805-7931","email":""},{"nome":"ERONIDES CANDIDO DE OLIVEIRA","cidade":"MONTANHAS","estado":"RN","telefone":"(84) 3661-3388","email":""},{"nome":"GRUPO WDC","cidade":"MONTANHAS","estado":"RN","telefone":"(84) 9701-8910","email":"WDWILSONDUARTE@GMAIL.COM"},{"nome":"LUIZ ANTONIO TEIXEIRA DA SILVA","cidade":"MONTANHAS","estado":"RN","telefone":"(84) 98735-5511","email":""},{"nome":"MERCADINHO FARIAS","cidade":"MONTANHAS","estado":"RN","telefone":"(84) 9863-8471","email":""},{"nome":"ADRIANO MATIAS XAVIER DIAS","cidade":"MONTE ALEGRE","estado":"RN","telefone":"(84) 9941-3761","email":""},{"nome":"VIVIANE RAFAELA MOREIRA DE PAIVA","cidade":"MONTE ALEGRE","estado":"RN","telefone":"(84) 99130-5481","email":""},{"nome":"2K COMERCIO E DISTRIBUIDORA","cidade":"NATAL","estado":"RN","telefone":"(84) 99158-3741","email":""},{"nome":"3D TRANSPORTES E NAVEGACAO DE APOIO MARITIMO LTDA","cidade":"NATAL","estado":"RN","telefone":"(84) 9958-3458","email":"JM_TERRAPLENAGEM1@HOTMAIL.COM"},{"nome":"BANCO DO BRASIL SA","cidade":"NATAL","estado":"RN","telefone":"(84) 4009-4000","email":""},{"nome":"CALCARIO POTIGUAR AGROMINERAIS E SERVIÇOS LTDA","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"CEI MIRASSOL- SUZANA","cidade":"NATAL","estado":"RN","telefone":"(84) 98185-0891","email":"SUZANA.CAVALCANTE@ESTUDECEI.COM.BR"},{"nome":"CEI MIRASSOL-TATIANA","cidade":"NATAL","estado":"RN","telefone":"","email":"TATIANA.AMERICO@ESTUDECEI.COM.BR"},{"nome":"CPAD COMERCIO E DISTRIBUIDORA LTDA","cidade":"NATAL","estado":"RN","telefone":"(21) 2406-7373","email":"CONTABILIDADE@CPAD.COM.BR"},{"nome":"CSBFFC ALECRIM","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"CSBFFC BURGER S10","cidade":"NATAL","estado":"RN","telefone":"(84) 3213-0762","email":""},{"nome":"CSBFFC SHAKES S10","cidade":"NATAL","estado":"RN","telefone":"(84) 3213-0762","email":""},{"nome":"FIVE STORE COMERCIO LTDA","cidade":"NATAL","estado":"RN","telefone":"(84) 98494-9599","email":"FIVESTORERN@GMAIL.COM"},{"nome":"FRANCISCO CANUTO","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"HELIO FARIAS DE OLIVEIRA","cidade":"NATAL","estado":"RN","telefone":"(84) 99821-3523","email":""},{"nome":"J. M. TERRA PLENAGEM","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"JULIANA SALES DE CARVALHO LOPES","cidade":"NATAL","estado":"RN","telefone":"(84) 99988-9197","email":""},{"nome":"JUNIOR AGUA","cidade":"NATAL","estado":"RN","telefone":"(84) 8124-5257","email":""},{"nome":"LOJA AFONSO PENA","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"NARCISO ENXOVAIS","cidade":"NATAL","estado":"RN","telefone":"(84) 3213-5118","email":""},{"nome":"NARGUILESTE","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"PERSIO SOUTO LOPES","cidade":"NATAL","estado":"RN","telefone":"(84) 9998-3039","email":""},{"nome":"RENATO ARGENTINA","cidade":"NATAL","estado":"RN","telefone":"","email":""},{"nome":"RONILDA RODRIGUES DA ROCHA VIANA","cidade":"NATAL","estado":"RN","telefone":"(84) 9141-9565","email":""},{"nome":"TEC FILTROS - JUDSON","cidade":"NATAL","estado":"RN","telefone":"(84) 9950-7850","email":"JUDSONFELIX@GMAIL.COM"},{"nome":"CAIXA ECONOMICA FEDERAL 939919","cidade":"NOVA CRUZ","estado":"RN","telefone":"","email":""},{"nome":"DINHOGAS","cidade":"NOVA CRUZ","estado":"RN","telefone":"","email":""},{"nome":"ERINALDO RACAO","cidade":"NOVA CRUZ","estado":"RN","telefone":"(84) 99101-1056","email":"ERINALDOCOSTA283@GMAIL.COM"},{"nome":"GALEGO GAS","cidade":"NOVA CRUZ","estado":"RN","telefone":"","email":""},{"nome":"REGINALDO MARTINS ALVES","cidade":"NOVA CRUZ","estado":"RN","telefone":"(84) 9903-6167","email":""},{"nome":"ADRIANO NASCIMENTO DOS SANTOS","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 9401-5307","email":""},{"nome":"LEONARDO DO NASCIMENTO COSTA","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 98116-6588","email":""},{"nome":"M DE C SILVA","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"","email":""},{"nome":"MARCONDES DE CARVALHO SILVA","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 98153-0824","email":""},{"nome":"MERCADINHO DA FAMILIA","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 98654-0461","email":""},{"nome":"PADARIA BARRETA","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 8803-2151","email":"JOHNTHALES72@GMAIL.COM"},{"nome":"RENATA DE MOURA TEXEIRA","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"","email":""},{"nome":"ULTRAGAZ","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 8117-8864","email":""},{"nome":"XODOZINHO","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 8114-1678","email":""},{"nome":"XODOZZINHO - GELO","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"","email":""},{"nome":"ZE MARIA GAS","cidade":"NÍSIA FLORESTA","estado":"RN","telefone":"(84) 8751-0663","email":""},{"nome":"CEI ZONA SUL-THIAGO","cidade":"PARNAMIRIM","estado":"RN","telefone":"(84) 3208-8470","email":"THIAGO.VICTOR@ESTUDECEI.COM.BR"},{"nome":"CENEGED","cidade":"PARNAMIRIM","estado":"RN","telefone":"(85) 3392-6950","email":"ALVAROCONTADOR@YAHOO.COM.BR"},{"nome":"J NOBRE NETO RECICLA","cidade":"PARNAMIRIM","estado":"RN","telefone":"","email":""},{"nome":"SUPERMERCADOS MJ DE GOIS LTDA","cidade":"PARNAMIRIM","estado":"RN","telefone":"(84) 98876-7665","email":"FISCAL@MJDEGOIS.COM.BR"},{"nome":"LAYNE VIDAL DE NEGREIROS","cidade":"PASSA E FICA","estado":"RN","telefone":"","email":""},{"nome":"AILSON DE SOUZA SILVA","cidade":"PASSAGEM","estado":"RN","telefone":"(84) 9918-1963","email":""},{"nome":"R G MERCADINHO","cidade":"PASSAGEM","estado":"RN","telefone":"(84) 98747-2683","email":""},{"nome":"TARSO VENICIUS BERNARDO CARNEIRO","cidade":"PEDRO VELHO","estado":"RN","telefone":"","email":""},{"nome":"JONATHAN PINHO DE MEDEIROS","cidade":"SANTA CRUZ","estado":"RN","telefone":"(84) 9653-2929","email":"JONATHANPINHO95@ICLOUD.COM"},{"nome":"DISK AGUA E GAS DO CHIQUINHO","cidade":"SANTO ANTÔNIO","estado":"RN","telefone":"(84) 9905-3517","email":""},{"nome":"EXPEDITO GAS","cidade":"SANTO ANTÔNIO","estado":"RN","telefone":"(84) 99410-4520","email":""},{"nome":"RAFA DISTRIBUIDORA DE AGUA MINERAL","cidade":"SANTO ANTÔNIO","estado":"RN","telefone":"(84) 3282-2885","email":""},{"nome":"AGRESTE EMPRENDIMENTOS LTDA","cidade":"SERRA DE SÃO BENTO","estado":"RN","telefone":"","email":""},{"nome":"ALMARI BERNARDINO XAVIER","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 3633-9343","email":""},{"nome":"AURILENE GOMES DA ROCHA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99453-7830","email":""},{"nome":"BOM PRECO","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99134-1858","email":""},{"nome":"CARLINHOS FRETE","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99925-8576","email":""},{"nome":"COMERCIAL ARAUJO","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99141-0772","email":""},{"nome":"COMERCIAL BARBALHO LTDA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99461-8688","email":""},{"nome":"COMERCIAL GÁS EXPRESS","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 9871-0123","email":"COMERCIALGASEAGUARN@GMAIL.COM"},{"nome":"CORINA ABILIO DE MELO","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 3633-9063","email":""},{"nome":"D & E COMERCIO E SERVICOS LTDA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99921-6771","email":""},{"nome":"DISTRIBUIDORA EMAUS","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99868-5000","email":""},{"nome":"ELIELSON DO GAS","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99186-9799","email":""},{"nome":"FRANCISCO ERIC ALEXANDRIA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(83) 8101-7201","email":""},{"nome":"INDUSTRIAS BECKER","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 3273-2277","email":""},{"nome":"ISAC ALVES DE SOUZA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99152-6552","email":""},{"nome":"JOSE ORLANDO DE MOURA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 3273-3682","email":""},{"nome":"JOSÉ LINDEMBERG FERREIRA NUNES","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99435-3224","email":""},{"nome":"KEMESON AGUA E GAS","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99426-5040","email":"KEMESONSOUZA@HOTMAIL.COM"},{"nome":"LIRA COMERCIO E SERVICOS","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99426-5040","email":""},{"nome":"M S CONVENIENCIA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 9470-7563","email":""},{"nome":"MERCADINHO A BIROSKA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99402-9276","email":""},{"nome":"MERCADINHO BOM PRECO","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 98855-0882","email":""},{"nome":"MERCADINHO DA ANA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99122-0332","email":""},{"nome":"MIQUEAS MIGUEL DA SILVA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 99187-2517","email":""},{"nome":"WIGERLIM FERREIRA DA ROCHA","cidade":"SÃO JOSÉ DE MIPIBU","estado":"RN","telefone":"(84) 9449-1670","email":""},{"nome":"ALIANO GAS","cidade":"SÃO JOSÉ DO CAMPESTRE","estado":"RN","telefone":"","email":""},{"nome":"ALIANO GAS E AGUA MINERAL","cidade":"SÃO JOSÉ DO CAMPESTRE","estado":"RN","telefone":"","email":""},{"nome":"SUPERMERCADO DOIS IRMAOS","cidade":"SÃO JOSÉ DO CAMPESTRE","estado":"RN","telefone":"","email":""},{"nome":"COMERCIAL SOBERANO","cidade":"TIBAU DO SUL","estado":"RN","telefone":"","email":""},{"nome":"DISTRIBUIDORA PE DE COCO","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 98835-6508","email":""},{"nome":"ERINALVA BEZERRA","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 9821-3141","email":""},{"nome":"MERCADINHO EBENEZER LTDA","cidade":"TIBAU DO SUL","estado":"RN","telefone":"","email":""},{"nome":"MERCADINHO L L","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 9154-5671","email":"THIAGOMIRRAEL61@GMAIL.COM"},{"nome":"NARGUILESTE","cidade":"TIBAU DO SUL","estado":"RN","telefone":"","email":""},{"nome":"PADARIA E MERCADINHO SAO JOSE","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 99898-0000","email":""},{"nome":"PAI & FILHO","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 3246-2107","email":""},{"nome":"PANIFICADORA E MERCADINHO TIBA","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 3246-2241","email":""},{"nome":"PANIFICADORA ESPERANCA","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 3272-2602","email":""},{"nome":"SOPHIA HORTFRUT","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(84) 99127-3554","email":""},{"nome":"WELLINGTON DE LIMA ME","cidade":"TIBAU DO SUL","estado":"RN","telefone":"(82) 3246-2241","email":""},{"nome":"PAULO EVERTON DE ARAUJO","cidade":"VILA FLOR","estado":"RN","telefone":"(84) 3245-0111","email":""},{"nome":"GUILHERME ALEXANDRE DE SOUZA","cidade":"VÁRZEA","estado":"RN","telefone":"(84) 8607-3238","email":""},{"nome":"GUILHERME BEBIDAS","cidade":"VÁRZEA","estado":"RN","telefone":"(84) 8609-8786","email":""},{"nome":"O ECONOMICO","cidade":"VÁRZEA","estado":"RN","telefone":"(84) 3288-2063","email":""},{"nome":"TEREZA CRISTINA ALEXANDRE","cidade":"VÁRZEA","estado":"RN","telefone":"(84) 98771-7634","email":""}];
+
+// Filter out internal/test entries
+const DISTRIBUIDORES = DATA.filter(d => {
+  const n = d.nome.toLowerCase();
+  return !n.includes('funcionario') && !n.includes('consumidor final') && d.nome !== '*****' && d.nome.length > 2;
+});
+
+// Build city list
+const CIDADES = [...new Set(DISTRIBUIDORES.map(d => d.cidade))].sort();
+
+// Render city pills (top ones)
+const topCidades = ['SÃO JOSÉ DE MIPIBU','NATAL','TIBAU DO SUL','NÍSIA FLORESTA','GOIANINHA','CANGUARETAMA','BREJINHO','NATAL','PARNAMIRIM'];
+const uniqTop = [...new Set(topCidades)].filter(c => CIDADES.includes(c));
+
+const pillsEl = document.getElementById('cityPills');
+let activePill = null;
+
+uniqTop.forEach(cidade => {
+  const pill = document.createElement('button');
+  pill.className = 'pill';
+  pill.textContent = capitalize(cidade);
+  pill.addEventListener('click', () => {
+    if (activePill === cidade) {
+      activePill = null;
+      pill.classList.remove('active');
+      document.getElementById('searchInput').value = '';
+    } else {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      activePill = cidade;
+      pill.classList.add('active');
+      document.getElementById('searchInput').value = '';
+    }
+    render();
+  });
+  pillsEl.appendChild(pill);
+});
+
+function capitalize(str) {
+  return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function normalize(str) {
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function render() {
+  const query = normalize(document.getElementById('searchInput').value.trim());
+  const container = document.getElementById('resultsContainer');
+  const countEl = document.getElementById('resultsCount');
+
+  let filtered = DISTRIBUIDORES;
+  if (activePill) {
+    filtered = filtered.filter(d => d.cidade === activePill);
+  }
+  if (query) {
+    filtered = filtered.filter(d =>
+      normalize(d.nome).includes(query) ||
+      normalize(d.cidade).includes(query) ||
+      normalize(d.telefone).includes(query)
+    );
+  }
+
+  countEl.innerHTML = `<span>${filtered.length}</span> distribuidor${filtered.length !== 1 ? 'es' : ''} encontrado${filtered.length !== 1 ? 's' : ''}`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <h3>Nenhum distribuidor encontrado</h3>
+        <p>Tente outro nome de cidade ou distribuidor.</p>
+      </div>`;
+    return;
+  }
+
+  // Group by city
+  const byCity = {};
+  filtered.forEach(d => {
+    if (!byCity[d.cidade]) byCity[d.cidade] = [];
+    byCity[d.cidade].push(d);
+  });
+
+  const sortedCities = Object.keys(byCity).sort();
+  container.innerHTML = sortedCities.map(cidade => `
+    <div class="city-group">
+      <div class="city-header">
+        <div class="city-name">${capitalize(cidade)}</div>
+        <div class="city-badge">${byCity[cidade].length} local${byCity[cidade].length !== 1 ? 'is' : ''}</div>
+        <div class="city-line"></div>
+      </div>
+      <div class="cards-grid">
+        ${byCity[cidade].map(d => cardHTML(d)).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function cardHTML(d) {
+  const phoneLink = d.telefone && d.telefone !== '0' && !d.telefone.includes('0000')
+    ? `<div class="dist-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ea8de" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.17 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 8.09a16 16 0 0 0 7.9 7.9l.36-.36a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+        <a href="tel:${d.telefone.replace(/\D/g,'')}">${d.telefone}</a>
+      </div>` : '';
+
+  const emailLink = d.email
+    ? `<div class="dist-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ea8de" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:${d.email}">${d.email.toLowerCase()}</a>
+      </div>` : '';
+
+  const estadoTag = `<span class="estado-tag ${d.estado === 'PB' ? 'pb' : ''}">${d.estado}</span>`;
+
+  return `
+    <div class="dist-card">
+      ${estadoTag}
+      <div class="dist-nome">${capitalize(d.nome)}</div>
+      <div class="dist-info">
+        ${phoneLink}
+        ${emailLink}
+        ${!phoneLink && !emailLink ? `<div class="dist-row" style="color:#b0bec5;font-size:0.78rem">Contato não disponível</div>` : ''}
+      </div>
+    </div>`;
+}
+
+// Events
+document.getElementById('searchInput').addEventListener('input', () => {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  activePill = null;
+  render();
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  activePill = null;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
